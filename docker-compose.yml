@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  db:
+    env_file: .env.docker
+    image: postgres:11
+  web:
+    build: .
+    command: ["./bin/rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+    depends_on:
+      - db
+    entrypoint: ["./entrypoint.sh"]
+    env_file:
+      - .env.docker
+    ports:
+      - "3000:3000"

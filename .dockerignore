@@ -1,0 +1,6 @@
+*.sw
+.git
+node_modules
+log
+tmp
+.env*
